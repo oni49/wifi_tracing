@@ -1,6 +1,6 @@
 # Weapons of Math Instruction: Using mathematics to draw usable operational insights from WiFi data.
 
-##Abstract/Thesis
+## Abstract/Thesis
 Three hypotheses and initial conclusions
 
 * The fact that marketeers and corporations collect copious amounts of data from their WiFi infrastructure and use mathematics and data science to better target individual consumers is well known, though the exact methods used often remain nebulous. The open source and information security communities are comfortable with war-driving and WiFi data collection tools like Kismet and the Dope Scope, but deeper understanding of how to leverage this data at scale remains disparate. In this talk we examine the operational insights we can draw from WiFi data for both offensive and defensive applications using mathematical approaches.
