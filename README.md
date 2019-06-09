@@ -94,7 +94,7 @@ Figure 3. Sensor ready for shipping
     
     where n is the path loss exponent which compensates for how fast the signal attenuates given the location (i.e. vegetation, buildings, etc.), TxPower is the transmit power of the WAP, and RSSI is the received signal strength at the mobile sensor. For our analysis I use an n value of 2.7 (2.0 is the value for a signal in a vacuum) and a TxPower value of -20 dBm. 
 
-See below for the algorithm used to process the data:
+    See below for the algorithm used to process the data:
 
         1. Cleaning/culling gpsxml data
             1. Remove 00:00:00:00:00:00 and GP:SD:TR:AC:KL:OG entries
