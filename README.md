@@ -30,8 +30,7 @@ As we continue our work, our code and sanitized data are available at [https://w
 3. **Stationary sensors.** In this section we discuss the hypotheses and work related to data collection from one or more stationary monitoring posts. The two primary hypotheses examined are:
 
     **H1: PoL info reveals the presence of recurring moving infrastructure.**
-
-**H2: PoL will allow us to classify if devices are mobile or stationary.**
+    **H2: PoL will allow us to classify if devices are mobile or stationary.**
 
     1. **Sensor and data strategies.** Here we discuss the hardware and architecture of the stationary sensors. Then, we describe the scripts and logic behind data collection and the environment in which each sensor was employed--and the type of data we expected to see. Finally, we discuss data anonymization and sanitization. 
 
