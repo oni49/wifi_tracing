@@ -100,7 +100,7 @@ Figure 3. Sensor ready for shipping
 
 See below for the algorithm used to process the data:
 
-        `1. Cleaning/culling gpsxml data
+        1. Cleaning/culling gpsxml data
             1. Remove 00:00:00:00:00:00 and GP:SD:TR:AC:KL:OG entries
             2. Remove corrupted data entries
         2. Parse xml data -> dictionary with macs as the key and a list of tuples (latitude, longitude, rssi) as the associated value.
@@ -113,7 +113,7 @@ See below for the algorithm used to process the data:
             5. Write map out to disk
         4. Review
             1. See if a building fall within darkened circles on map
-            2. Any instance of an AP detected with no building within reasonable distance -> further analysis`
+            2. Any instance of an AP detected with no building within reasonable distance -> further analysis
 
 6. **Other outputs.** In this section we examine other insights we encountered and hypotheses emerging over the course of our research. For example, we examine OUI information available in our data set and attempt to use context (dropped out of our public data sets) to reveal OUIs that are not available in our baseline OUI list. 
 
