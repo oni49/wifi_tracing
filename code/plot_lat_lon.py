@@ -7,7 +7,8 @@ from gmplot import gmplot
 import subprocess
 import os
 
-
+# thanks to Pasa on stackoverflow
+# https://stackoverflow.com/questions/53873673/plot-data-on-satellite-maps/54164812
 class CustomGoogleMapPlotter(gmplot.GoogleMapPlotter):
     def __init__(self, center_lat, center_lng, zoom, apikey='',
                  map_type='satellite'):
