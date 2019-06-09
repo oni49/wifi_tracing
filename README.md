@@ -91,8 +91,9 @@ Figure 3. Sensor ready for shipping
     Once we had a clean and sanitized xml file, we could then begin the data processing in earnest. The developed Python script reads the xml file and creates a dictionary of BSSID as the key and a list of all latitude, longitude and RSSI tuples for each entry. From there a center latitude/longitude pair is determined to provide the center of the map. A google map instance is then created and the list of 3-tuples is then iterated over. The diameter of the circle placed at each latitude/longitude pair is determined by using the RSSI value and a version of the mean path loss model equation from the seminal paper "914 mhz Path Loss Prediction Models for Indoor Wireless Communications in Multifloored Buildings" by Seidel and Rappaport.![image alt text](https://github.com/ryko212/wifi_tracing/blob/master/images/image_3.png)
     When we solve for distance, the formula becomes:
     ![image alt text](https://github.com/ryko212/wifi_tracing/blob/master/images/image_4.png)
-    where n is the path loss exponent which compensates for how fast the signal attenuates given the location (i.e. vegetation, buildings, etc.), TxPower is the transmit power of the WAP, and RSSI is the received signal strength at the mobile sensor. For our analysis I use an n value of 2.7 (2.0 is the value for a signal in a vacuum) and a TxPower value of -20 dBm. 
     
+    where n is the path loss exponent which compensates for how fast the signal attenuates given the location (i.e. vegetation, buildings, etc.), TxPower is the transmit power of the WAP, and RSSI is the received signal strength at the mobile sensor. For our analysis I use an n value of 2.7 (2.0 is the value for a signal in a vacuum) and a TxPower value of -20 dBm. 
+
     See below for the algorithm used to process the data:
 
         1. Cleaning/culling gpsxml data
