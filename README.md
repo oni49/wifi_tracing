@@ -76,7 +76,6 @@ With the data collected and organized, we analyze it with a combination of techn
 
     **H3: Surreptitious mobile sensors will allow us to leverage existing infrastructure to discover previously unknown infrastructure for further detailed analysis**
 
-
     1. **Sensor methodology.** The collection process for this particular dataset required two separate pieces: the sensor itself (consisting of both hardware and software) and the deployment method.
 
         1. **Hardware.** Our primary focus when building our moving sensor focused around battery longevity. With this in mind we started with a raspberry pi zero w as the base for the sensor. This would provide us with a low-cost and relatively low power device that afforded us compute power. Next, we added GPS capability over USB by employing a Garmin GlobalSat BU-353 GPS device. Finally, we added a DS3231 real time clock module that connected to GPIO pins of the raspberry pi zero w. Finally, we powered the entire setup off of an external battery pack. A 20100 mAh battery pack would provide enough power for approximately three days of wifi data collection.
@@ -84,7 +83,6 @@ With the data collected and organized, we analyze it with a combination of techn
         2. **Software.** Since we were focused on reducing the power consumption of the sensor, we decided to not use an external Alfa antenna for wifi packet collection. Instead we used the updated nexmon firmware/drivers ([https://github.com/seemoo-lab/nexmon/blob/master/README.md](https://github.com/seemoo-lab/nexmon/blob/master/README.md)) to allow us to put the onboard wifi controller into promiscuous mode. Next, we installed kismet version 2016-07-R1 and set it up as a service to start on boot.
 
         3. **Deployment.** Once we built the sensor, we needed a way to efficiently canvas potentially disparate and distant geographic locations. The simplest method we settled on was to package up the sensor (raspberry pi zero w, rtc, gps, and battery) into a foam setting that fit into a small flat rate package from the USPS. We could then provide a destination address, pay for shipping, and drop the entire setup in the mail. To initially ensure that we would receive the sensor back with the data intact, we chose someone we knew to receive the sensor. They would then either physically hand the sensor back to us or mail it back. Once returned, we could pull the sd card and download the kismet logs for further analysis.
-
 ![image alt text](https://github.com/ryko212/wifi_tracing/blob/master/images/image1.jpg)
 Figure 3. Sensor ready for shipping
 
