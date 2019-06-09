@@ -54,39 +54,39 @@ With the data collected and organized, we analyze it with a combination of techn
 
         6. Logistic Regression/Support Vector Machine/mean-shift clustering/DBSCAN (to be tested)
 
-4. **Defensive and Offensive Insights from Stationary Sensor Data. **In this section we examine how to operationalize data collected from one or more stationary sensors. We discuss:
+4. **Defensive and Offensive Insights from Stationary Sensor Data.** In this section we examine how to operationalize data collected from one or more stationary sensors. We discuss:
 
-    3. **Alerting. **The simplest method of gaining operational value from stationary sensors is to create a rules based or observation based alerting system. We discuss how this system operates based on the following two rules:
+    3. **Alerting.** The simplest method of gaining operational value from stationary sensors is to create a rules based or observation based alerting system. We discuss how this system operates based on the following two rules:
 
         7. **Alert when a new WAP is observed.** For defenders, this--potentially noisey--alert allows immediate identification of new or rogue hotspot comes online. For attackers, this allows the detailed tracking of the expansion of target infrastructure which allows for attacks of opportunity and identification of security policy violations which may be exploited. 
 
         8. **Alert when a specific WAP is observed**. This allows both attackers and defenders to track a suspicious device in detail and is most useful when a device is tightly associated to a person or situation. 
 
-    4. **Set theory. **Set theory provides us with means to quickly analyze data across multiple sensors. We demonstrate and discuss the analysis of data collected from multiple stationary sensors as if they represent three separate corporate campuses--instead of our apartments. Each sensor’s data is deduplicated into a set containing a hash representing each WAP and a reference of times each WAP was observed. 
+    4. **Set theory.** Set theory provides us with means to quickly analyze data across multiple sensors. We demonstrate and discuss the analysis of data collected from multiple stationary sensors as if they represent three separate corporate campuses--instead of our apartments. Each sensor’s data is deduplicated into a set containing a hash representing each WAP and a reference of times each WAP was observed. 
 
 With a set off WAPs observed at each campus, the set intersection of all campuses immediately provides operational insight when examined during a given time window. The set intersection for each campus represents devices present at multiple campuses.** A WAP present at all campuses designates either a VIP (target for offense) or an actor conducting deliberate reconnaissance (target for defense).
 **
 
-    5. **Change detection. **Change detection uses behavior based fingerprints in order to identify when a WAP’s behavior diverges from its normal. We discuss the creation of vectors which represent significant highlights of behavior and how to examine them for changes using methods such as clustering and cosine difference. This allows defenders to identify:
+    5. **Change detection.** Change detection uses behavior based fingerprints in order to identify when a WAP’s behavior diverges from its normal. We discuss the creation of vectors which represent significant highlights of behavior and how to examine them for changes using methods such as clustering and cosine difference. This allows defenders to identify:
 
-        9. **Change in clustering: **This indicates when a certain type of device begins to behave as a different kind of device.
+        9. **Change in clustering:** This indicates when a certain type of device begins to behave as a different kind of device.
 
-        10. **Substantial cosine difference when measured against itself: **This indicates when a device has substantially altered its behavior. It has become a new type of device, changed when its active, changed where its active, etc.
+        10. **Substantial cosine difference when measured against itself:** This indicates when a device has substantially altered its behavior. It has become a new type of device, changed when its active, changed where its active, etc.
 
-    6. **Geo-data’s impact on alerts and change detection. **All of our means of operationalizing WiFi data become even better when enriched with geo-data. Using collectable data such as the RSSI field, the locations and movement patterns of WAPs (or client devices) can be observed, recorded, fingerprinted, and monitored for significant change. 
+    6. **Geo-data’s impact on alerts and change detection.** All of our means of operationalizing WiFi data become even better when enriched with geo-data. Using collectable data such as the RSSI field, the locations and movement patterns of WAPs (or client devices) can be observed, recorded, fingerprinted, and monitored for significant change. 
 
-5. **Moving Sensors. **In this section we discuss the hypothesis and work related to data collection from mobile monitoring posts. The primary hypothesis examined is:**
+5. **Moving Sensors.** In this section we discuss the hypothesis and work related to data collection from mobile monitoring posts. The primary hypothesis examined is:
 
-    H3: Surreptitious mobile sensors will allow us to leverage existing infrastructure to discover previously unknown infrastructure for further detailed analysis
-**
+    **H3: Surreptitious mobile sensors will allow us to leverage existing infrastructure to discover previously unknown infrastructure for further detailed analysis**
 
-    7. **Sensor methodology. **The collection process for this particular dataset required two separate pieces: the sensor itself (consisting of both hardware and software) and the deployment method.
+
+    7. **Sensor methodology.** The collection process for this particular dataset required two separate pieces: the sensor itself (consisting of both hardware and software) and the deployment method.
 
         11. **Hardware.** Our primary focus when building our moving sensor focused around battery longevity. With this in mind we started with a raspberry pi zero w as the base for the sensor. This would provide us with a low-cost and relatively low power device that afforded us compute power. Next, we added GPS capability over USB by employing a Garmin GlobalSat BU-353 GPS device. Finally, we added a DS3231 real time clock module that connected to GPIO pins of the raspberry pi zero w. Finally, we powered the entire setup off of an external battery pack. A 20100 mAh battery pack would provide enough power for approximately three days of wifi data collection.
 
-        12. **Software. **Since we were focused on reducing the power consumption of the sensor, we decided to not use an external Alfa antenna for wifi packet collection. Instead we used the updated nexmon firmware/drivers ([https://github.com/seemoo-lab/nexmon/blob/master/README.md](https://github.com/seemoo-lab/nexmon/blob/master/README.md)) to allow us to put the onboard wifi controller into promiscuous mode. Next, we installed kismet version 2016-07-R1 and set it up as a service to start on boot.
+        12. **Software.** Since we were focused on reducing the power consumption of the sensor, we decided to not use an external Alfa antenna for wifi packet collection. Instead we used the updated nexmon firmware/drivers ([https://github.com/seemoo-lab/nexmon/blob/master/README.md](https://github.com/seemoo-lab/nexmon/blob/master/README.md)) to allow us to put the onboard wifi controller into promiscuous mode. Next, we installed kismet version 2016-07-R1 and set it up as a service to start on boot.
 
-        13. **Deployment. **Once we built the sensor, we needed a way to efficiently canvas potentially disparate and distant geographic locations. The simplest method we settled on was to package up the sensor (raspberry pi zero w, rtc, gps, and battery) into a foam setting that fit into a small flat rate package from the USPS. We could then provide a destination address, pay for shipping, and drop the entire setup in the mail. To initially ensure that we would receive the sensor back with the data intact, we chose someone we knew to receive the sensor. They would then either physically hand the sensor back to us or mail it back. Once returned, we could pull the sd card and download the kismet logs for further analysis.
+        13. **Deployment.** Once we built the sensor, we needed a way to efficiently canvas potentially disparate and distant geographic locations. The simplest method we settled on was to package up the sensor (raspberry pi zero w, rtc, gps, and battery) into a foam setting that fit into a small flat rate package from the USPS. We could then provide a destination address, pay for shipping, and drop the entire setup in the mail. To initially ensure that we would receive the sensor back with the data intact, we chose someone we knew to receive the sensor. They would then either physically hand the sensor back to us or mail it back. Once returned, we could pull the sd card and download the kismet logs for further analysis.
 
 ![image alt text](https://github.com/ryko212/wifi_tracing/blob/master/images/image0.jpg)
 
@@ -96,7 +96,7 @@ Figure 3. Sensor ready for shipping
 
 Pivoting to the gpsxml file from Kismet, it became quite clear that we could use the data in that file to build our intended heatmaps. The gpsxml file creates an entry per frame that is received. However, Kismet also tracks additional information that we do not require for our analysis. Kismet continually polls the attached GPS device and, if a time threshold is reached with no new frame received, Kismet writes an entry to the gpsxml file with the bssid of "GP:SD:TR:AC:KL:OG" and the rest of the appropriate data for a fully formed gpsxml entry.
 
-    9. **Data Processing. **Since the size of the gpsxml file is directly proportional to the time the sensor is powered on, we could end up in a large file (over 200 MB) and  needed a way to first clean/cull the data prior to processing to reduce the size of the file so that the Python script can more efficiently process the xml. From there we decided to sanitize the data to replace the BSSIDs with a hash of the current BSSID and a secret key (this step may not be required). 
+    9. **Data Processing.** Since the size of the gpsxml file is directly proportional to the time the sensor is powered on, we could end up in a large file (over 200 MB) and  needed a way to first clean/cull the data prior to processing to reduce the size of the file so that the Python script can more efficiently process the xml. From there we decided to sanitize the data to replace the BSSIDs with a hash of the current BSSID and a secret key (this step may not be required). 
 
 Once we had a clean and sanitized xml file, we could then begin the data processing in earnest. The developed Python script reads the xml file and creates a dictionary of BSSID as the key and a list of all latitude, longitude and RSSI tuples for each entry. From there a center latitude/longitude pair is determined to provide the center of the map. A google map instance is then created and the list of 3-tuples is then iterated over. The diameter of the circle placed at each latitude/longitude pair is determined by using the RSSI value and a version of the mean path loss model equation from the seminal paper "914 mhz Path Loss Prediction Models for Indoor Wireless Communications in Multifloored Buildings" by Seidel and Rappaport.![image alt text](image_3.png)
 
@@ -140,11 +140,11 @@ See below for the algorithm used to process the data:
 
     10. **Stationary Sensor.** Deploying multiple stationary sensors per monitored campus and enriching all data using geolocation lessons learned from mobile sensor work. Further, we wish to examine the best offensive applications and how to best transition from stationary collection to collection with mobile, manned-sensors. 
 
-    11. **Moving Sensor. **
+    11. **Moving Sensor.**
 
         18. **Math refinement. **Continue to develop the mathematical expressions to assign each WAP to the nearest real property/infrastructure and assign a probabilistic confidence interval to the location of each WAP RSSI-based heatmaps circles are written to the map.
 
-        19. **Mobility expansion. **Examine the following:
+        19. **Mobility expansion.** Examine the following:
 
             10. Determine alternate methods of canvassing geographic areas with sensors to cover areas that the postal service does not and guarantee deployment methods are available when we cannot use the original method.
 
@@ -152,7 +152,7 @@ See below for the algorithm used to process the data:
 
             12. Develop a heartbeat beacon that would alert us to the location of the sensor during its deployment. These heartbeats would be rough indicators of the location and health of the sensor at a particular time. In turn, this would maximize our ability to recover a damaged, lost, or stranded sensor. 
 
-8. **Conclusion. **Code, data, and future updates to this project and this outline can be found at [https://github.com/ryko212/wifi_tracing](https://github.com/ryko212/wifi_tracing)  
+8. **Conclusion.** Code, data, and future updates to this project and this outline can be found at [https://github.com/ryko212/wifi_tracing](https://github.com/ryko212/wifi_tracing)  
 
 Abstract/Thesis.md
 Displaying Abstract/Thesis.md.
