@@ -10,11 +10,13 @@ Three hypotheses and initial conclusions
 * When examining PoL data to detect recurring moving infrastructure or WAPs, we conclude that simple mathematical measurements are sufficient to reveal the presence and behavioral patterns of mobile WAPs. We discuss the methodology required to profile such access points, as well as the methods and equipment required to measure such behavior not just in time, but also in space. When we explore whether or not pattern of life data will allow us to discover if devices are transient or stationary, we reveal a clear difference in the quantity and nature of the signals observed and then further conclude that data science will allow us to classify these signals as mobile or stationary without contextual knowledge such as SSIDs or visual observation. 
 
 ![PCA WAP](https://github.com/ryko212/wifi_tracing/blob/master/image2.png)
+
 Figure 1. Principal Component Analysis of WAP Pattern of Life Data
 
 * Further, when we explore surreptitious mobile sensors to enumerate previously unknown infrastructure, we discuss legal methods for leveraging public services such as the postal service to conduct data collection then present both math and code for calculating the geolocation of an individual WAP in a probabilistic fashion and explore the algorithmic means necessary to objectively identify unusual WAPs for further examination. 
 
 ![Prob Method](https://github.com/ryko212/wifi_tracing/blob/master/image3.png)
+
 Figure 2. Initial visualizations of probabilistic mapping of a WAP
 
 
