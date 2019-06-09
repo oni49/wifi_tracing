@@ -39,7 +39,7 @@ As we continue our work, our code and sanitized data are available at [https://w
     However, we needed a way to express the unique PoL of a WAP--one that goes above and beyond simple sparsity of data collected--in order to classify it as mobile or stationary. To answer this question, we built collected each observed MAC/SSID pair’s PoL as a vector with 1440 fields - the number of minutes in a day. For each minute, we entered the number of times the WAP was seen. For example, if a WAP is stationary, its beacon frames would be recorded the same time every day, increasing the "minute of day" count. If it was mobile like a MiFi puck then its beacon frames may be seen at various minutes of the day--which may or may not overlap. In short, we’ve created a fingerprint of each WAP’s behavior for each minute of day - an array, where each position represents the number of times it was detected for each minute of the day. 
 
 
-With the data collected and organized, we analyze it with a combination of techniques across mathematics, data science, and statistics such as:
+With the data collected and organized, we analyze it with a combination of techniques across mathematics, data science, and statistics such as
 
         1. Simple counting metrics (visualized using bar graphs)
 
