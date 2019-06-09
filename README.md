@@ -25,9 +25,9 @@ While exploring each hypothesis, we discuss our methods and hardware in detail--
 
 As we continue our work, our code and sanitized data are available at [https://www.github.com/ryko212/wifi_tracing](https://www.github.com/ryko212/wifi_tracing) 
 
-2. **Lit Review: **In this section, we discuss previous work directly related to or similar to our project. Most notably, we examine SensePost’s work creating Snoopy, a distribute WiFi based profiling system ([https://sensepost.com/blog/2012/snoopy-a-distributed-tracking-and-profiling-framework/](https://sensepost.com/blog/2012/snoopy-a-distributed-tracking-and-profiling-framework/) ) and then current events such as hotels’ use of Wifi orchestration and security frameworks to prevent consumers from using private WiFi options ([http://fortune.com/2015/11/04/fcc-hotels-wifi-blocking/](http://fortune.com/2015/11/04/fcc-hotels-wifi-blocking/) ).
+2. **Lit Review: ** In this section, we discuss previous work directly related to or similar to our project. Most notably, we examine SensePost’s work creating Snoopy, a distribute WiFi based profiling system ([https://sensepost.com/blog/2012/snoopy-a-distributed-tracking-and-profiling-framework/](https://sensepost.com/blog/2012/snoopy-a-distributed-tracking-and-profiling-framework/) ) and then current events such as hotels’ use of Wifi orchestration and security frameworks to prevent consumers from using private WiFi options ([http://fortune.com/2015/11/04/fcc-hotels-wifi-blocking/](http://fortune.com/2015/11/04/fcc-hotels-wifi-blocking/) ).
 
-3. **Stationary sensors. **In this section we discuss the hypotheses and work related to data collection from one or more stationary monitoring posts. The two primary hypotheses examined are:
+3. **Stationary sensors. ** In this section we discuss the hypotheses and work related to data collection from one or more stationary monitoring posts. The two primary hypotheses examined are:
 
     **H1: PoL info reveals the presence of recurring moving infrastructure.**
 
