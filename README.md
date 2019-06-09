@@ -102,7 +102,7 @@ Once we had a clean and sanitized xml file, we could then begin the data process
 
 When we solve for distance, the formula becomes:
 
-[image alt text](https://github.com/ryko212/wifi_tracing/blob/master/images/image_4.png)
+![image alt text](https://github.com/ryko212/wifi_tracing/blob/master/images/image_4.png)
 
 where n is the path loss exponent which compensates for how fast the signal attenuates given the location (i.e. vegetation, buildings, etc.), TxPower is the transmit power of the WAP, and RSSI is the received signal strength at the mobile sensor. For our analysis I use an n value of 2.7 (2.0 is the value for a signal in a vacuum) and a TxPower value of -20 dBm. 
 
