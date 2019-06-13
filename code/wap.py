@@ -5,7 +5,7 @@ from scapy.all import Dot11, sniff
 
 #log = list( (mac, ssid, rssi, sensor, time) )
 log = list()
-log_file = open('wap.log', 'w')
+log_file = open('wap.log', 'a+')
 log_count = 0
 
 #Sensor information
